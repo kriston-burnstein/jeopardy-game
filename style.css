@@ -76,6 +76,7 @@ span {
      border: 2px solid green;
      border-radius: 5px;
      margin: 5px;
+     height: 100px;
      flex: 1;
 }
 
