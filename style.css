@@ -25,7 +25,7 @@
 body {
      box-sizing: border-box;
      text-align: center;
-     font-size: Arial, Helvetica, sans-serif;
+     font-family: Arial, Helvetica, sans-serif;
      background-color: lightgrey;
 }
 
