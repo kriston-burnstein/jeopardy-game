@@ -90,18 +90,34 @@ function setCategories(catArray) {
 
 }
 
+//FIGURE OUT WHICH ITEM WAS CLICKED
 function getClue(event) {
     let child = event.currentTarget
     child.classList.add('clicked-box')
     let boxValue = child.innerHTML.slice(1)
     let parent = child.parentNode
     let index = Array.prototype.findIndex.call(parent.children, (c) => c === child)
-    let clueList = catArray[index].clues 
-    let clue = clueList.find(obj => {
+    let cluesList = catArray[index].clues 
+    let clue = cluesList.find(obj => {
         return obj.value == boxValue
     })
-
+    console.log(clue)
+    showQuestion(clue, child, boxValue)
 } 
+
+
+//SHOW QUESTION TO USER AND GET THEIR ANSWER
+
+function showQuestion(clue, target, boxValue) {
+    let userAnswer = prompt(clue.question).toLowerCase()
+    let correctAnswer = clue.answer.toLowerCase().replace(/<\/?[^>]+(>|$)/g, "") //regex voodoo
+    let possiblePoints = +(boxValue)
+    target.innerHTML = clue.answer
+    target.removeEventListener('click', getClue, false)
+}
+
+
+
 
 //////////////////////////////////////////////////////////////////
 //fetch template
