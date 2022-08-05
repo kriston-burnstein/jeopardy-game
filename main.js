@@ -34,6 +34,68 @@ function initBoard() {
     }
 }
 
+function randInt() {
+    return Math.floor(Math.random() * (18418) + 1)
+}
+
+function buildCategories() {
+
+    const fetchReq1 = fetch(
+        `https://jservice.io/api/category?&id=${randInt()}`
+    ).then(res => res.json()) // parse response as JSON   
+
+    const fetchReq2 = fetch(
+        `https://jservice.io/api/category?&id=${randInt()}`
+    ).then(res => res.json()) // parse response as JSON   
+
+    const fetchReq3 = fetch(
+        `https://jservice.io/api/category?&id=${randInt()}`
+    ).then(res => res.json()) // parse response as JSON   
+
+    const fetchReq4 = fetch(
+        `https://jservice.io/api/category?&id=${randInt()}`
+    ).then(res => res.json()) // parse response as JSON   
+
+    const fetchReq5 = fetch(
+        `https://jservice.io/api/category?&id=${randInt()}`
+    ).then(res => res.json()) // parse response as JSON   
+
+    const fetchReq6 = fetch(
+        `https://jservice.io/api/category?&id=${randInt()}`
+    ).then(res => res.json()) // parse response as JSON   
+
+    const allData = Promise.all([fetchReq1, fetchReq2, fetchReq3, fetchReq4, fetchReq5, fetchReq6])   
+
+    allData.then((res) => {
+        console.log(res)
+    })
+    
+}
+
+
+
+
 function getClue() {
     console.log('have a great day')
 } 
+
+//////////////////////////////////////////////////////////////////
+//fetch template
+
+// document.querySelector('button').addEventListener('click', getFetch)
+
+// function getFetch(){
+//   const choice = document.querySelector('input').value
+//   const url = `https://www.dnd5eapi.co/api/spells/${choice}`
+
+//   fetch(url)
+//       .then(res => res.json()) // parse response as JSON
+//       .then(data => {
+//         console.log(data.subclasses)
+        
+
+//       })
+//       .catch(err => {
+//           console.log(`error ${err}`)
+//       });
+// }
